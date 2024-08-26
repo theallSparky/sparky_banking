@@ -1,3 +1,4 @@
+import { sidebarLinks } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -11,10 +12,19 @@ const Sidebar = ({ user }: SiderbarProps) => {
             src="/icons/logo.svg"
             height={34}
             width={34}
-            alt="logo"
+            alt="Sparky Banking Logo"
             className="size-[24px] max-xl:14"
           />
+          <h1 className="sidebar-logo">Sparky</h1>
         </Link>
+
+        {sidebarLinks.map((item) => {
+          return (
+            <Link href={item.route} key={item.label}>
+              {item.label}
+            </Link>
+          );
+        })}
       </nav>
     </section>
   );
